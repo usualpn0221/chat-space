@@ -1,0 +1,30 @@
+%header グループを作成しました
+
+%div.sidemenu
+  %div.sidemenu__user ramune
+  %a{href: "/test"}= fa_icon("edit",class:"icon-edit")
+  %a{href: "/test"}= fa_icon("cog",class:"icon-cog")
+
+  %div.sidemenu__yohaku
+    = render partial: "sidebargroup"
+
+%div.wrapper1
+  .chat
+    .chat__wrapper2
+      .chat__group tech
+      .chat__member Member：ramune
+
+      %a.chat__edit{href: "/test"} Edit
+
+    = render partial: "chat"
+
+
+
+  .chat__send
+    %form.chat__message{action:"/test"}
+      %input{type:"text" ,placeholder:"type a message"}
+      %label
+        = fa_icon("image 2x",class:"icon-image")
+        %input{type:"file",id:"file"}
+      %input{type:"submit",value:"SEND"}
+
