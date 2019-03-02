@@ -32,7 +32,7 @@ header{
   width:300px;
   height: 100vh;
   @include leftdisplay;
-
+  position: relative;
 
 
 &__user{
