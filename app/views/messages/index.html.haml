@@ -1,6 +1,6 @@
 %div.sidemenu
   %div.sidemenu__user #{current_user.name}
-  %a{href: "/test"}= fa_icon("edit",class:"icon-edit")
+  %a{href: "#{new_group_path}"}= fa_icon("edit",class:"icon-edit")
   %a{href: "/users/#{current_user.id}/edit"}= fa_icon("cog",class:"icon-cog")
 
   %div.sidemenu__yohaku
@@ -12,7 +12,7 @@
       .chat__group tech
       .chat__member Member：ramune
 
-      %a.chat__edit{href: "/test"} Edit
+      %a.chat__edit{href: "#{edit_group_path(18)}"} Edit
 
     = render partial: "chat"
 
