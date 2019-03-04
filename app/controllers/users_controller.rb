@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def update
 
     current_user.update(create_params)
-    redirect_to controller: :messages, action: :index
+    redirect_to controller: :groups, action: :index
   end
 
   private
