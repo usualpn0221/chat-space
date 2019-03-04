@@ -32,7 +32,7 @@ header{
   width:300px;
   height: 100vh;
   @include leftdisplay;
-
+  position: relative;
 
 
 &__user{
@@ -106,6 +106,7 @@ width:calc(100vw - 300px);
 height: 90px;
 padding:20px 40px;
 @include rightdisplay;
+position: relative;
 }
 
 

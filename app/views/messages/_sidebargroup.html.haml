@@ -1,3 +1,6 @@
-%div.sidemenu__group tech
+-current_user.groups.each do |group|
+  = link_to group_messages_path(group) do
+    %div.sidemenu__group
+      =group.name
 
-%div.sidemenu__chat testtest
+    %div.sidemenu__chat testtest
