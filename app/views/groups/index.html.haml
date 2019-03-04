@@ -1,0 +1,17 @@
+%div.sidemenu
+  %div.sidemenu__user #{current_user.name}
+  %a{href: "#{new_group_path}"}= fa_icon("edit",class:"icon-edit")
+  %a{href: "/users/#{current_user.id}/edit"}= fa_icon("cog",class:"icon-cog")
+
+  %div.sidemenu__yohaku
+    = render partial: "messages/sidebargroup"
+
+
+
+
+
+
+
+
+
+
