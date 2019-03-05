@@ -18,8 +18,7 @@
 
       %a.chat__edit{href: "#{edit_group_path(@group)}"} Edit
 
-    = @messages.each do |message|
-      = render partial: "chat", locals:{message: message}
+    = render partial: "chat", collection: @messages,as: :message
 
 
 
