@@ -1,5 +1,9 @@
 %div.chat__user
-  %span{style: "font-size:16px;font-family:bold;color:#434A54;"}ramune
-  2019/02/26(Tue) 19:56:00
+  %span{style: "font-size:16px;font-family:bold;color:#434A54;"} #{message.user.name}
+  = message.created_at.strftime("%Y/%m/%d %H:%M")
 
-%div.chat__chat testtest
+%div.chat__chat
+  - if message.body.present?
+    %p.lower-message__content
+      = message.body
+  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
