@@ -1,8 +1,8 @@
 $(function(){
    function buildHTML(message){
 
-    if (message.image.url === null){
-    var html = `<div class="chat__user">
+
+    var kari = `
                     <span style="font-size:16px; font-family:bold; color:#434A54";>${message.user_name}</span>
                     ${message.date}
                     </div>
@@ -12,21 +12,14 @@ $(function(){
                    <p class="lower-message__content">
                   ${message.body}</p>
 
-                  </div>
-                  <div class="last"></div>`
-                } else {
-    var html = `<div class="chat__user">
-                    <span style="font-size:16px; font-family:bold; color:#434A54";>${message.user_name}</span>
-                    ${message.date}
-                    </div>
+                  `
+     if (message.image.url !== null){
+    var kari = ` ${kari}<img src="${message.image.url}" class="lower-message__image">`
+                  }
 
-                  <div class="chat__chat">
+    var html =`<div class="chat__user">${kari}</div>`
 
-                   <p class="lower-message__content">
-                  ${message.body}</p>
-                  <img src="${message.image.url}" class="lower-message__image">
-                  </div>
-                  <div class="last"></div>`}
+
 
 
     return html;
@@ -52,8 +45,8 @@ $(function(){
 
       var html = buildHTML(data);
       $('.chat__wrapper').append(html)
-      $('.form__message').val('')
-      $('.hidden').val("")
+
+      $('.new_message')[0].reset()
 
       var message = $('.chat__wrapper')[0].scrollHeight
 
