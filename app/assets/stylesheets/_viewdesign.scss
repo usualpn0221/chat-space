@@ -67,10 +67,25 @@ height: calc(100vh - 90px);
 @include rightdisplay;
 
 
+
+
 &__wrapper2{
-  position: relative;
+
+  position: fixed;
+  width:calc(100vw - 300px);
+  z-index: 40;
+  background-color:  $thingraycolor;
 }
 
+&__wrapper{
+position:relative;
+z-index: 10;
+height: calc(100vh - 90px);
+overflow: auto;
+box-sizing: border-box;
+padding-bottom: 90px;
+
+}
 
 &__group{
   font-size: 20px;
@@ -89,7 +104,8 @@ height: calc(100vh - 90px);
 &__user{
   font-size: 12px;
   color:$heavygraycolor;
-  padding-top:46px;
+  padding-top:86px;
+
 
 }
 
@@ -97,6 +113,7 @@ height: calc(100vh - 90px);
   font-size:14px;
   color:$heavybluecolor;
   padding-top:10px;
+
 }
 
 
@@ -107,6 +124,7 @@ height: 90px;
 padding:20px 40px;
 @include rightdisplay;
 position: relative;
+z-index: 20;
 }
 
 
@@ -120,7 +138,7 @@ padding:0px 20px 0;
 text-align: center;
 line-height: 40px;
 position:absolute;
-right:0px;
+right:100px;
 top:-7px;
 border-width: thin;
 color: $mizuirocolor;
@@ -146,6 +164,7 @@ height: 50px;
 width:70px;
 background-color: $mizuirocolor;
 text-align: center;
+font-size: 20px;
 line-height: 50px;
 color:$whitecolor;
 border-color:  $mizuirocolor;
@@ -175,3 +194,5 @@ border-color:  $mizuirocolor;
 .hidden{
   display: none;
 }
+
+

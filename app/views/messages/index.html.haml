@@ -18,15 +18,16 @@
 
       %a.chat__edit{href: "#{edit_group_path(@group)}"} Edit
 
-    = render partial: "chat", collection: @messages,as: :message
+    %div.chat__wrapper
+      = render partial: "chat", collection: @messages,as: :message
 
 
 
   .chat__send
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], html:{class:"new_message"} do |f|
       = f.text_field :body, class: 'form__message', placeholder: 'type a message'
       = f.label :image, class: 'form__mask__image' do
         = fa_icon("image 2x",class:"icon-image")
         = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__submit'
+      = f.button 'Send', class: 'form__submit'
 
