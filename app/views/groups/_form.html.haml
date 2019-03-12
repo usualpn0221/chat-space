@@ -11,7 +11,7 @@
       = f.label :グループ名, class: 'chat-group-form__label'
     .chat-group-form__field--right
       = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
-      %input#chat__group_id{:name=>'kari',:type=>'hidden',:value=>"#{params[:id]}"}
+      %input.chat__group_id{:type=>'hidden',:value=>"#{params[:id]}"}
   .chat-group-form__field.clearfix
 
   .chat-group-form__field.clearfix

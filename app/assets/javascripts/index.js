@@ -15,7 +15,7 @@ $(function() {
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
-    var group_id =document.getElementById("chat__group_id").value;
+    var group_id =$(".chat__group_id").val();
 
 
     $.ajax({
@@ -52,7 +52,7 @@ $(function() {
               </div>`
     $("#chat-group-users").append(html);
 
-    var group_id =document.getElementById("chat__group_id").value;
+    var group_id =$(".chat__group_id").val();
 
     $.ajax({
       type: 'PATCH',
@@ -72,7 +72,7 @@ $(function() {
 
     $(this).parent().remove();
 
-    var group_id =document.getElementById("chat__group_id").value;
+    var group_id =$(".chat__group_id").val();
 
 
       $.ajax({
