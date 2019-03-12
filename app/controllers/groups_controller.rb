@@ -29,13 +29,21 @@ class GroupsController < ApplicationController
   end
 
   def update
-
-   if @group.update(group_params)
+    if request.xhr? then
+    Member.create(params.permit(:group_id,:user_id))
+    elsif @group.update(group_params)
       redirect_to group_messages_path(@group), notice: 'グループを編集しました'
     else
       render :edit
     end
+  end
 
+  def destroy
+    if request.xhr? then
+
+      member = Member.find_by(group_id: params[:group_id], user_id: params[:user_id])
+      member.destroy
+    end
   end
 
   private
