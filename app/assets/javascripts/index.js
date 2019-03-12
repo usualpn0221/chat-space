@@ -33,7 +33,7 @@ $(function() {
          });
        }
        else {
-         appendErrMsgToHTML("一致するユーザーはありません");
+         appendErrMsgToHTML();
        }
 
     })
@@ -67,10 +67,8 @@ $(function() {
   });
 
   $(document).on("click", ".user-search-remove", function() {
-        var kari =$(this).siblings('input');
-        var kari =$(kari[0]).val()
-        // var kari =$(kari).prev();
-        // var kari =$('kari[name="group[user_ids][]"]');
+        var user_id =$(this).siblings('input');
+        var user_id =$(user_id[0]).val()
 
     $(this).parent().remove();
 
@@ -80,7 +78,7 @@ $(function() {
       $.ajax({
       type: 'DELETE',
       url: "/groups/"+group_id,
-      data: { group_id: group_id ,user_id:kari},
+      data: { group_id: group_id ,user_id:user_id},
       dataType: 'json'
     })
 
