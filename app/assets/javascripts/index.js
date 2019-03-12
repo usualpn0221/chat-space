@@ -20,7 +20,7 @@ $(function() {
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: { keyword: input ,group_id:group_id},
+      data: { keyword: input ,group_id: group_id},
       dataType: 'json'
     })
 
@@ -36,7 +36,7 @@ $(function() {
        }
     })
 
-      .fail(function() {
+    .fail(function() {
       alert('ユーザー検索に失敗しました');
     })
   });
@@ -55,7 +55,7 @@ $(function() {
     $.ajax({
       type: 'PATCH',
       url: "/groups/"+group_id,
-      data: { group_id: group_id ,user_id:$(this).data('user-id')},
+      data: { group_id: group_id ,user_id: $(this).data('user-id')},
       dataType: 'json'
     })
   });
