@@ -17,7 +17,6 @@ $(function() {
     var input = $("#user-search-field").val();
     var group_id =$(".chat__group_id").val();
 
-
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -35,7 +34,6 @@ $(function() {
        else {
          appendErrMsgToHTML();
        }
-
     })
 
       .fail(function() {
@@ -60,27 +58,21 @@ $(function() {
       data: { group_id: group_id ,user_id:$(this).data('user-id')},
       dataType: 'json'
     })
-
-
-
-
   });
 
   $(document).on("click", ".user-search-remove", function() {
-        var user_id =$(this).siblings('input');
-        var user_id =$(user_id[0]).val()
+    var user_id =$(this).siblings('input');
+    var user_id =$(user_id[0]).val()
 
     $(this).parent().remove();
 
     var group_id =$(".chat__group_id").val();
 
-
-      $.ajax({
+    $.ajax({
       type: 'DELETE',
       url: "/groups/"+group_id,
       data: { group_id: group_id ,user_id:user_id},
       dataType: 'json'
     })
-
   });
 });

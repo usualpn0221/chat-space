@@ -35,26 +35,14 @@ class GroupsController < ApplicationController
       redirect_to group_messages_path(@group), notice: 'グループを編集しました'
     else
       render :edit
-
-
-      respond_to do |format|
-      format.html
-      format.json
-      end
     end
   end
 
   def destroy
+    if request.xhr? then
 
-      if request.xhr? then
-
-        member = Member.find_by(group_id: params[:group_id], user_id: params[:user_id])
-        member.destroy
-
-        respond_to do |format|
-        format.html
-        format.json
-      end
+      member = Member.find_by(group_id: params[:group_id], user_id: params[:user_id])
+      member.destroy
     end
   end
 
