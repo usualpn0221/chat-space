@@ -1,6 +1,6 @@
 $(function(){
    function buildHTML(message){
-    var kari = `<div class="chat__user"><span style="font-size:16px; font-family:bold; color:#434A54";>
+    var kari = `<div class="chat__user" data-id="${message.id}"><span style="font-size:16px; font-family:bold; color:#434A54";>
                 ${message.user_name}</span>
                 ${message.date}
                 </div>
@@ -44,4 +44,36 @@ $(function(){
       alert('error');
     })
   })
+
+  var log = function(){
+    var url = $("#new_message").attr('action')
+    if($('.chat__user')[0]){
+      var message_id = $('.chat__user:last').data('id');
+    } else {
+      var message_id = 0
+    }
+
+    if (url !== undefined){
+      $.ajax({
+        url: url,
+        type: "GET",
+        dataType: 'json',
+        data: { message_id: message_id},
+      })
+
+      .done(function(messages) {
+         if (messages.length !== 0) {
+           messages.forEach(function(message){
+            var html = buildHTML(message);
+            $('.chat__wrapper').append(html)
+           });
+         }
+      })
+
+      .fail(function() {
+        alert('メッセージ検索に失敗しました');
+      })
+    }
+  };
+  setInterval(log,5000);
 })
