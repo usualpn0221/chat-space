@@ -1,4 +1,4 @@
-%div.chat__user
+%div.chat__user{data: {id: "#{message.id}"}}
   %span{style: "font-size:16px;font-family:bold;color:#434A54;"} #{message.user.name}
   = message.created_at.strftime("%Y/%m/%d %H:%M")
 
