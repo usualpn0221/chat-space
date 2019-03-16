@@ -37,6 +37,9 @@ $(document).on('turbolinks:load',function() {
 
     .fail(function() {
       alert('ユーザー検索に失敗しました');
+      console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+      console.log("textStatus     : " + textStatus);
+      console.log("errorThrown    : " + errorThrown.message);
     })
   });
 
