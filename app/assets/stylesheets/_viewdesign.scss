@@ -1,3 +1,8 @@
+::-webkit-scrollbar {
+      display: none;
+      -webkit-appearance: none;
+}
+
 @mixin leftdisplay{
   float: left;
   box-sizing: border-box;
@@ -32,7 +37,7 @@ header{
   width:300px;
   height: 100vh;
   @include leftdisplay;
-  position: relative;
+  position: fixed;
 
 
 &__user{
@@ -40,10 +45,14 @@ header{
   font-size: 16px;
   @include sidefontstyle;
   padding:35px 20px 27px;
+
 }
 
 &__yohaku{
   padding: 0px 20px 0px;
+  overflow: auto;
+  height: 95vh;
+
 }
 
 &__group{
