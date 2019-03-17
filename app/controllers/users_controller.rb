@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
       respond_to do |format|
       format.html
-      format.json{@users = User.where.not(id: current_user.id||Member.where(group_id: "#{@group}").select(:user_id)).where('Users.name LIKE(?)',"#{params[:keyword]}%")}
+      format.json{@users = User.where.not(id: current_user.id||Member.where(group_id: "#{@group}").select(:user_id)).where('Users.name LIKE(?)',"#{params[:keyword]}%")
+      return @users}
       end
   end
 
