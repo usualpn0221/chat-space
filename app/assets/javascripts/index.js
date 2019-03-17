@@ -18,7 +18,6 @@ $(document).on('turbolinks:load',function() {
 
     $.ajax({
       type: 'GET',
-      scriptCharset: 'utf-8',
       url: '/users',
       data: { keyword: input ,group_id: group_id},
       dataType: 'json'
