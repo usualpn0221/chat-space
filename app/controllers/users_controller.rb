@@ -4,7 +4,7 @@ class UsersController < ApplicationController
       @users = User.where.not(id: current_user.id).where.not(id: Member.where(group_id: "#{@group}").select(:user_id)).where('Users.name LIKE(?)',"#{params[:keyword]}%")
 
       respond_to do |format|
-      format.html
+      format.html { render :nothing => true }
       format.json
       end
   end
