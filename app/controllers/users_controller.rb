@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
       @group = params[:group_id]
-      @users = User.where('users.name LIKE(?)',"#{params[:keyword]}%")
+      @users = User.where('Users.name LIKE(?)',"#{params[:keyword]}%")
 
       respond_to do |format|
       format.html
