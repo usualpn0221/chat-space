@@ -15,11 +15,18 @@ $(document).on('turbolinks:load',function() {
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
     var group_id =$(".chat__group_id").val();
+    var search_user_ids =$(".chat-group-user__name").siblings('input');
+    var user_id_list = [];
+    var count =search_user_ids.length
+
+    for(var i = 0; i < count; i = i + 1){
+           user_id_list.push($(search_user_ids[i]).val());
+    }
 
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: { keyword: input ,group_id: group_id},
+      data: { keyword: input ,group_id: group_id,users_id: user_id_list},
       dataType: 'json'
     })
 
@@ -52,30 +59,9 @@ $(document).on('turbolinks:load',function() {
                 <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
               </div>`
     $("#chat-group-users").append(html);
-
-    var group_id =$(".chat__group_id").val();
-
-    $.ajax({
-      type: 'PATCH',
-      url: "/groups/"+group_id,
-      data: { group_id: group_id ,user_id: $(this).data('user-id')},
-      dataType: 'json'
-    })
   });
 
   $(document).on("click", ".user-search-remove", function() {
-    var user_id =$(this).siblings('input');
-    var user_id =$(user_id[0]).val()
-
     $(this).parent().remove();
-
-    var group_id =$(".chat__group_id").val();
-
-    $.ajax({
-      type: 'DELETE',
-      url: "/groups/"+group_id,
-      data: { group_id: group_id ,user_id:user_id},
-      dataType: 'json'
-    })
   });
 
