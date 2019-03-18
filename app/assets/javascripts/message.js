@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function() {
+$(function() {
    function buildHTML(message){
     var kari = `<div class="chat__user" data-id="${message.id}"><span style="font-size:16px; font-family:bold; color:#434A54";>
                 ${message.user_name}</span>
@@ -77,3 +77,4 @@ $(document).on('turbolinks:load',function() {
   };
   setInterval(log,5000);
 })
+
