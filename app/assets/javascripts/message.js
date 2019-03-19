@@ -21,6 +21,7 @@ $(function() {
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
+    $('.new_message')[0].reset()
 
     $.ajax({
       url: url,
@@ -34,7 +35,7 @@ $(function() {
     .done(function(data){
       var html = buildHTML(data);
       $('.chat__wrapper').append(html)
-      $('.new_message')[0].reset()
+
 
       var message = $('.chat__wrapper')[0].scrollHeight
       $('.chat__wrapper').animate({scrollTop: message});
@@ -42,8 +43,9 @@ $(function() {
 
     .fail(function(){
       alert('error');
-    })
-  })
+    });
+
+ })
 
   var log = function(){
     var url = $("#new_message").attr('action')
